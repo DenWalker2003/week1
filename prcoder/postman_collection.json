@@ -1,0 +1,197 @@
+{
+    "info": {
+        "name": "Coder API",
+        "_postman_id": "uuid",
+        "description": "API for encryption and decryption services",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Add User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"login\": \"TEST1\",\n    \"secret\": \"12345\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/users",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Users",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/users",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "users"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Methods",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/methods",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "methods"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Encrypt Data with Vigenere",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_login\": \"TEST1\",\n    \"secret\": \"12345\",\n    \"method_id\": 1,\n    \"text\": \"шла саша по шоссе\",\n    \"params\": {\n        \"key\": \"ключ\"\n    },\n    \"action\": \"encrypt\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/sessions",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "sessions"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Decrypt Data with Vigenere",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_login\": \"TEST1\",\n    \"secret\": \"12345\",\n    \"method_id\": 1,\n    \"text\": \"шла саша по шоссе\",\n    \"params\": {\n        \"key\": \"ключ\"\n    },\n    \"action\": \"decrypt\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/sessions",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "sessions"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Session Details",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/sessions/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "sessions",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Sessions",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:5000/sessions/all",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "sessions",
+                        "all"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Session",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"secret\": \"12345\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/sessions/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "sessions",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
